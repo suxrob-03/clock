@@ -1,0 +1,80 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100%;
+}
+
+body {
+  background-color: hsl(0, 0%, 0%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body .container {
+  width: 100%;
+  height: auto;
+}
+body .container h1 {
+  font-family: system-ui, sans-serif;
+  color: hsl(0, 0%, 100%);
+  text-align: center;
+  font-size: 52px;
+  margin: 50px auto;
+}
+body .container .countdown {
+  --number-color: hsl(0, 79%, 48%);
+  --text-color: hsl(0 0% 25%);
+  --dot-color: hsl(0 0% 10%);
+  --dot-color-remaining: hsl(182, 100%, 66%);
+  --dot-color-active: hsl(0 100% 50%);
+  font-family: system-ui, sans-serif;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10rem;
+  width: min(90rem, 100%);
+  margin-inline: auto;
+  container: inline-size;
+}
+body .container .countdown .part {
+  aspect-ratio: 1/1;
+  display: grid;
+  place-items: center;
+}
+body .container .countdown .part .remaining {
+  grid-area: 1/1;
+  color: hsl(0, 0%, 100%);
+  display: grid;
+  text-align: center;
+  font-size: 5cqi;
+}
+body .container .countdown .part .remaining .number {
+  color: var(--number-color);
+}
+body .container .countdown .part .remaining .text {
+  color: var(--text-color);
+  text-transform: uppercase;
+  font-size: 0.5em;
+}
+body .container .countdown .part .dot-container {
+  grid-area: 1/1;
+  height: 100%;
+  width: 4%;
+  rotate: calc(360deg / var(--dots) * var(--dot-idx));
+}
+body .container .countdown .part .dot-container .dot {
+  width: 100%;
+  aspect-ratio: 1/1;
+  background-color: var(--dot-color);
+  border-radius: 50%;
+  transition: background-color 0.25s;
+}
+body .container .countdown .part .dot-container .dot[data-active=true] {
+  background-color: var(--dot-color-remaining);
+}
+body .container .countdown .part .dot-container .dot[data-active=true][data-lastactive=true] {
+  background-color: var(--dot-color-active);
+}/*# sourceMappingURL=style.css.map */
